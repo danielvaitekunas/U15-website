@@ -263,7 +263,6 @@ form {
 input,
 textarea,
 select {
-    width: 100%;
     background-color: var(--bg-color);
     border: 1px solid var(--border-color);
     color: var(--text-main);

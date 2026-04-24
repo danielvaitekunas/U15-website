@@ -43,6 +43,8 @@
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
                         <input type="tel" id="phone" name="phone" required placeholder="Phone Number">
+                        <small id="phoneError" style="color: #d30000; display: none; margin-top: 0.5rem;">Please enter a
+                            valid phone number.</small>
                     </div>
                 </div>
             </section>
@@ -94,16 +96,16 @@
                     </div>
                 </div>
 
-                <div class="form-group" style="margin-bottom: 1.5rem; resize: none;">
+                <div class="form-group" style="margin-bottom: 1.5rem;">
                     <label for="teamSkills">Describe your experience working in a team environment.</label>
-                    <textarea id="teamSkills" name="teamSkills" rows="5"
+                    <textarea id="teamSkills" name="teamSkills" rows="10" style="resize: none;"
                         placeholder="Tell us about working in a team..." required></textarea>
                 </div>
 
                 <div class="form-group">
                     <label for="coverLetter">Why would you be a good fit for Hot Beans Web?</label>
-                    <textarea id="coverLetter" name="coverLetter" rows="5" placeholder="Tell us about yourself..."
-                        required></textarea>
+                    <textarea id="coverLetter" name="coverLetter" rows="10" style="resize: none;"
+                        placeholder="Tell us about yourself..." required></textarea>
                 </div>
             </section>
 
