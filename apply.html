@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/x-icon" href="assets/tabicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HBW | Apply</title>
+    <meta name="description" content="Apply for a position at Hot Beans Web.">
+    <link rel="stylesheet" href="pagecss/allpages.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="pagecss/apply.css">
+</head>
+
+<body>
+    <div id="page-loader">
+        <div class="spinner"></div>
+    </div>
+
+    <div class="page-header">
+        <h1>Application Form</h1>
+    </div>
+
+    <main>
+
+        <form action="#" method="POST" id="applicationForm" enctype="multipart/form-data">
+
+            <!-- Personal Details -->
+            <section class="form-section">
+                <h2>Personal Details</h2>
+                <div class="input-row">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" required placeholder="Full Name">
+                    </div>
+                </div>
+                <div class="input-row input-row-2">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="Email Address">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="Phone Number">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Application Details -->
+            <section class="form-section">
+                <h2>Application Details</h2>
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label for="position">Position Applying For</label>
+                    <select id="position" name="position" required>
+                        <option value="">Select a position...</option>
+                        <option value="senior_web_dev">Senior Web Developer</option>
+                        <option value="ui_ux_designer">UI/UX Designer</option>
+                        <option value="trainee_web_dev">Trainee Web Developer</option>
+                        <option value="frontend_web_dev">Front-End Web Developer</option>
+                        <option value="backend_web_dev">Back-End Web Developer</option>
+                        <option value="fullstack_web_dev">Full-Stack Web Developer</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Upload CV</label>
+                    <div class="upload-box" onclick="document.getElementById('cv-upload').click()">
+                        <strong id="upload-text">Click to Upload or Drag & Drop</strong>
+                        <p>Supported Formats: .pdf, .doc, .docx</p>
+                        <input type="file" id="cv-upload" name="cv" accept=".pdf,.doc,.docx" style="display:none;"
+                            required>
+                    </div>
+                </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 1.5rem; margin-top: 1.5rem;">
+                    <label>Programming Languages (Select all that apply)</label>
+                    <div class="multi-select-dropdown" id="langDropdown">
+                        <div class="dropdown-header" id="dropdownHeader">
+                            <span id="dropdown-text">Select languages...</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="dropdown-content" id="langOptions">
+                            <label><input type="checkbox" name="languages" value="HTML/CSS"> HTML/CSS</label>
+                            <label><input type="checkbox" name="languages" value="JavaScript"> JavaScript</label>
+                            <label><input type="checkbox" name="languages" value="TypeScript"> TypeScript</label>
+                            <label><input type="checkbox" name="languages" value="React"> React / Next.js</label>
+                            <label><input type="checkbox" name="languages" value="Python"> Python</label>
+                            <label><input type="checkbox" name="languages" value="PHP"> PHP</label>
+                            <label><input type="checkbox" name="languages" value="SQL"> SQL</label>
+                            <label><input type="checkbox" name="languages" value="C#"> C#</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 1.5rem; resize: none;">
+                    <label for="teamSkills">Describe your experience working in a team environment.</label>
+                    <textarea id="teamSkills" name="teamSkills" rows="5"
+                        placeholder="Tell us about working in a team..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="coverLetter">Why would you be a good fit for Hot Beans Web?</label>
+                    <textarea id="coverLetter" name="coverLetter" rows="5" placeholder="Tell us about yourself..."
+                        required></textarea>
+                </div>
+            </section>
+
+            <!-- Security Check -->
+            <section class="form-section">
+                <h2>Security Check</h2>
+                <div class="captcha-container">
+                    <canvas id="captchaCanvas" width="200" height="60"></canvas>
+                    <button type="button" id="refreshCaptcha" class="btn btn-secondary" style="padding: 0.5rem 1rem;">↻
+                        Reload</button>
+                </div>
+                <div class="form-group" style="margin-bottom: 2rem;">
+                    <label for="captchaInput">Enter the text shown above</label>
+                    <input type="text" id="captchaInput" required placeholder="Type the characters...">
+                    <small id="captchaError"
+                        style="color: var(--primary-color); display: none; margin-top: 0.5rem;">Incorrect CAPTCHA.
+                        Please try again.</small>
+                </div>
+
+                <button type="submit" class="btn submit-btn">Submit Application</button>
+            </section>
+
+        </form>
+
+        <div id="successMessage" class="success-message">
+            <h2>Application successfully sent!</h2>
+            <p>Thanks for applying at Hot Beans Web!</p>
+            <button type="button" class="btn" style="margin-top: 2rem;" onclick="location.reload()">Submit Another
+                Application</button>
+        </div>
+
+    </main>
+
+    <!-- Header, Footer and Application Scripts -->
+    <script src="js/components.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
+    <script src="js/apply.js"></script>
+</body>
+
+</html>
